@@ -1,7 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Wpm.Management.Domain.Enums;
+﻿using Wpm.Management.Domain.Enums;
 using Wpm.Management.Domain.Interfaces;
 using Wpm.Management.Domain.ValueObjects;
+using Wpm.SharedKernel;
 
 namespace Wpm.Management.Domain;
 

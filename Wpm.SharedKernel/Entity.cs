@@ -1,4 +1,4 @@
-﻿namespace Wpm.Management.Domain
+﻿namespace Wpm.SharedKernel
 {
     public abstract class Entity : IEquatable<Entity>
     {
@@ -11,7 +11,7 @@
 
         public override bool Equals(object? obj)
         {
-            return Equals(obj as Pet);
+            return Equals(obj as Entity);
         }
 
         public override int GetHashCode()
@@ -30,5 +30,5 @@
         }
     }
 
-    
+
 }

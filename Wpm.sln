@@ -3,19 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpm.Management.Api", "Wpm.Management.Api\Wpm.Management.Api.csproj", "{99B3C86F-7324-4779-AA6E-3F890CCDD407}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpm.Management.Api", "Wpm.Management.Api\Wpm.Management.Api.csproj", "{99B3C86F-7324-4779-AA6E-3F890CCDD407}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpm.Management.Domain", "Wpm.Management.Domain\Wpm.Management.Domain.csproj", "{8987D17B-471F-4DC2-AD2F-BFD3B656B9B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpm.Management.Domain", "Wpm.Management.Domain\Wpm.Management.Domain.csproj", "{8987D17B-471F-4DC2-AD2F-BFD3B656B9B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpm.Management.Tests", "Wpm.Management.Tests\Wpm.Management.Tests.csproj", "{E09265D9-B337-4D83-BD74-D8A8028CEE05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpm.Management.Tests", "Wpm.Management.Tests\Wpm.Management.Tests.csproj", "{E09265D9-B337-4D83-BD74-D8A8028CEE05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpm.Clinic.Api", "Wpm.Clinic.Api\Wpm.Clinic.Api.csproj", "{7B1A1174-EBDE-46F6-9DC4-E24C3ABB6D31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpm.Clinic.Domain", "Wpm.Clinic.Domain\Wpm.Clinic.Domain.csproj", "{79A5FB38-410D-4E53-8936-D63BCBCFA72E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpm.Clinic.Tests", "Wpm.Clinic.Tests\Wpm.Clinic.Tests.csproj", "{82CF5767-D8AC-48A6-81EE-955D51BE4889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpm.SharedKernel", "Wpm.SharedKernel\Wpm.SharedKernel.csproj", "{50A3905F-8F68-443E-9E5C-348C0220E2DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99B3C86F-7324-4779-AA6E-3F890CCDD407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +35,27 @@ Global
 		{E09265D9-B337-4D83-BD74-D8A8028CEE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E09265D9-B337-4D83-BD74-D8A8028CEE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E09265D9-B337-4D83-BD74-D8A8028CEE05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1A1174-EBDE-46F6-9DC4-E24C3ABB6D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1A1174-EBDE-46F6-9DC4-E24C3ABB6D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1A1174-EBDE-46F6-9DC4-E24C3ABB6D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1A1174-EBDE-46F6-9DC4-E24C3ABB6D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A5FB38-410D-4E53-8936-D63BCBCFA72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A5FB38-410D-4E53-8936-D63BCBCFA72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A5FB38-410D-4E53-8936-D63BCBCFA72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A5FB38-410D-4E53-8936-D63BCBCFA72E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CF5767-D8AC-48A6-81EE-955D51BE4889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CF5767-D8AC-48A6-81EE-955D51BE4889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CF5767-D8AC-48A6-81EE-955D51BE4889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CF5767-D8AC-48A6-81EE-955D51BE4889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A3905F-8F68-443E-9E5C-348C0220E2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A3905F-8F68-443E-9E5C-348C0220E2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A3905F-8F68-443E-9E5C-348C0220E2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A3905F-8F68-443E-9E5C-348C0220E2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC17BD21-E3E0-4CBD-9025-E6B498D44018}
 	EndGlobalSection
 EndGlobal
