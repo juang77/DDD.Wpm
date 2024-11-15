@@ -7,6 +7,7 @@ namespace Wpm.Clinic.Domain;
 public class Consultation : AggregateRoot
 {
     private readonly List<DrugAdministration> administeredDrugs = new();
+    private readonly List<VitalSigns> vitalSignsReadings = new();
 
 
     public PatientId PatientId { get; init; }
@@ -24,6 +25,7 @@ public class Consultation : AggregateRoot
     public ConsultationStatus Status { get; private set; }
 
     public IReadOnlyCollection<DrugAdministration> AdministeredDrugs => administeredDrugs;
+    public IReadOnlyCollection<VitalSigns> VitalSignsReadings => vitalSignsReadings;
 
     public Consultation(PatientId patientId)
     { 
@@ -67,6 +69,12 @@ public class Consultation : AggregateRoot
         }
         Status = ConsultationStatus.Finalized;
         ConsultationEnd = DateTime.UtcNow;
+    }
+
+    public void RegisterVitalSigns(IEnumerable<VitalSigns> vitalSigns)
+    {
+        ValidateConsultationStatus();
+        vitalSignsReadings.AddRange(vitalSigns);
     }
 
     private void ValidateConsultationStatus()

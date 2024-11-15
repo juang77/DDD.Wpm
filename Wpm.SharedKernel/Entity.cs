@@ -11,7 +11,7 @@
 
         public override bool Equals(object? obj)
         {
-            return Equals(obj as En);
+            return Equals(obj as Entity);
         }
 
         public override int GetHashCode()
