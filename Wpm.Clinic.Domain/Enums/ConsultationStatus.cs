@@ -2,7 +2,7 @@
 {
     public enum ConsultationStatus
     {
-        Open, 
-        Closed
+        Started, 
+        Finalized
     }
 }
