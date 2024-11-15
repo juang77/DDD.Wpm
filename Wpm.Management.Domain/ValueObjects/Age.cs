@@ -13,5 +13,10 @@
 
             Value = Value;
         }
+
+        public static implicit operator Age(int value)
+        {
+            return new Age(value);
+        }
     }
 }
