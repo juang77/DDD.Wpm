@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Wpm.Management.Api.Infraestructure;
+using Wpm.Management.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<ManagementDbContext>(options =>
 {
     options.UseSqlite("Data Source=D:\\Practicas\\SQLiteDbs\\Wpm.db");
 });
+builder.Services.AddScoped<IBreedService, BreedService>();
 var app = builder.Build();
 app.EnsureDbIsCreated();
 
