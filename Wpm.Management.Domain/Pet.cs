@@ -9,11 +9,11 @@ public class Pet : Entity
 {
     public string? Name { get; init; }
 
-    public Age Age { get; init; }
+    public int Age { get; init; }
 
     public string Color { get; init; }
 
-    public Weight Weight { get; private set; }
+    public Weight? Weight { get; private set; }
 
     public WeightClass WeightClass { get; private set; }
 
@@ -21,7 +21,7 @@ public class Pet : Entity
 
     public BreedId BreedId { get; init; }
 
-    public Pet(Guid id, string name, Age age, string color, SexOfPet sexOfPet, BreedId breedId)
+    public Pet(Guid id, string name, int age, string color, SexOfPet sexOfPet, BreedId breedId)
     { 
         Id = id; 
         Name = name; 
