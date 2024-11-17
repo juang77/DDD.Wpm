@@ -1,4 +1,5 @@
 using Wpm.Clinic.Domain;
+using Wpm.Clinic.Domain.Entities;
 using Wpm.Clinic.Domain.Enums;
 using Wpm.Clinic.Domain.ValueObjects;
 
@@ -86,7 +87,7 @@ public class ConsultationTests
     public void Consultation_add_Vital_Signs()
     {
         var c = new Consultation(Guid.NewGuid());
-        IEnumerable<VitalSigns> vitalSigns = [new VitalSigns(38.8m, 100, 120)];
+        IEnumerable<VitalSigns> vitalSigns = [new VitalSigns(DateTime.UtcNow, 38.8m, 100, 120)];
         c.RegisterVitalSigns(vitalSigns);
         Assert.True(c.VitalSignsReadings.Count == 1);
         Assert.True(c.VitalSignsReadings.First() == vitalSigns.First());

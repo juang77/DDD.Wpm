@@ -3,7 +3,7 @@ using Wpm.Management.Domain.Interfaces;
 using Wpm.Management.Domain.ValueObjects;
 using Wpm.SharedKernel;
 
-namespace Wpm.Management.Domain;
+namespace Wpm.Management.Domain.Entities;
 
 public class Pet : Entity
 {
@@ -22,17 +22,17 @@ public class Pet : Entity
     public BreedId BreedId { get; init; }
 
     public Pet(Guid id, string name, int age, string color, SexOfPet sexOfPet, BreedId breedId)
-    { 
-        Id = id; 
-        Name = name; 
-        Age = age; 
-        Color = color; 
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+        Color = color;
         SexOfPet = sexOfPet;
         BreedId = breedId;
     }
 
     public void SetWeight(Weight weight, IBreedService breedService)
-    { 
+    {
         Weight = weight;
         SetWeightClass(breedService);
     }

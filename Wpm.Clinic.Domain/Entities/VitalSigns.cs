@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Wpm.SharedKernel;
 
-namespace Wpm.Clinic.Domain.ValueObjects
+namespace Wpm.Clinic.Domain.Entities
 {
-    public record VitalSigns
+    public class VitalSigns : Entity
     {
         public DateTime ReadingDateTime { get; init; }
 
@@ -16,9 +12,11 @@ namespace Wpm.Clinic.Domain.ValueObjects
 
         public int RespiratoryRate { get; init; }
 
-        public VitalSigns(decimal temperature, int heartRate, int respiratoryRate)
+        public VitalSigns(DateTime readingDateTime, decimal temperature, int heartRate, int respiratoryRate)
         {
-            ReadingDateTime = DateTime.UtcNow;
+            Id = Guid.NewGuid();
+
+            ReadingDateTime = readingDateTime;
 
             if (temperature < 0)
             {
@@ -40,7 +38,10 @@ namespace Wpm.Clinic.Domain.ValueObjects
             RespiratoryRate = respiratoryRate;
         }
 
-
+        public VitalSigns() 
+        {
+        
+        }
 
     }
 }

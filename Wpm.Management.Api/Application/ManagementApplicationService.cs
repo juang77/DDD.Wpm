@@ -1,10 +1,11 @@
-﻿using Wpm.Management.Domain;
+﻿using Wpm.Management.Api.Infraestructure;
+using Wpm.Management.Domain.Entities;
 using Wpm.Management.Domain.Interfaces;
 using Wpm.Management.Domain.ValueObjects;
 
 namespace Wpm.Management.Api.Application
 {
-    public class ManagementApplicationService(IBreedService breedService)
+    public class ManagementApplicationService(IBreedService breedService, ManagementDbContext dbContext)
     {
         public async Task Handle(CreatePetCommand command)
         {
@@ -17,6 +18,15 @@ namespace Wpm.Management.Api.Application
                     command.SexOfPet,
                     breedId                
                 );
+            await dbContext.Pets.AddAsync( newPet );
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task Handle(SetWeightCommand command)
+        {
+            var pet = await dbContext.Pets.FindAsync(command.Id);
+            pet.SetWeight(command.Weight, breedService);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

@@ -2,7 +2,7 @@
 using Wpm.Clinic.Domain.ValueObjects;
 using Wpm.SharedKernel;
 
-namespace Wpm.Clinic.Domain;
+namespace Wpm.Clinic.Domain.Entities;
 
 public class Consultation : AggregateRoot
 {
@@ -16,11 +16,11 @@ public class Consultation : AggregateRoot
 
     public DateTime? ConsultationEnd { get; private set; }
 
-    public Text Diagnosis { get; private set; }
+    public Text? Diagnosis { get; private set; }
 
-    public Text Treatment { get; private set; }
+    public Text? Treatment { get; private set; }
 
-    public Weight CurrentWeight { get; private set; }
+    public Weight? CurrentWeight { get; private set; }
 
     public ConsultationStatus Status { get; private set; }
 
@@ -28,9 +28,9 @@ public class Consultation : AggregateRoot
     public IReadOnlyCollection<VitalSigns> VitalSignsReadings => vitalSignsReadings;
 
     public Consultation(PatientId patientId)
-    { 
-        Id= Guid.NewGuid();
-        PatientId= patientId;
+    {
+        Id = Guid.NewGuid();
+        PatientId = patientId;
         Status = ConsultationStatus.Started;
         ConsultationStart = DateTime.UtcNow;
     }

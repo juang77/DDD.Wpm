@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Wpm.Management.Api.Application;
 using Wpm.Management.Api.Infraestructure;
 using Wpm.Management.Domain.Interfaces;
 
@@ -15,8 +16,9 @@ builder.Services.AddDbContext<ManagementDbContext>(options =>
     options.UseSqlite("Data Source=D:\\Practicas\\SQLiteDbs\\Wpm.db");
 });
 builder.Services.AddScoped<IBreedService, BreedService>();
+builder.Services.AddScoped<ManagementApplicationService>();
 var app = builder.Build();
-app.EnsureDbIsCreated();
+app.ApplyMigrations();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -24,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 

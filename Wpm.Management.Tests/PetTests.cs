@@ -1,5 +1,5 @@
-using Wpm.Management.Domain;
 using Wpm.Management.Domain.DomainServices;
+using Wpm.Management.Domain.Entities;
 using Wpm.Management.Domain.Enums;
 using Wpm.Management.Domain.ValueObjects;
 

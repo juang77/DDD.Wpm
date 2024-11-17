@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Wpm.Management.Domain;
+using Wpm.Management.Domain.Entities;
 using Wpm.Management.Domain.ValueObjects;
 
 namespace Wpm.Management.Api.Infraestructure
@@ -17,17 +17,18 @@ namespace Wpm.Management.Api.Infraestructure
                         .Property(p => p.BreedId)
                         .HasConversion(v => v.Value, v => BreedId.Create(v));
             modelBuilder.Entity<Pet>().OwnsOne(x => x.Weight);
+
+            modelBuilder.HasDefaultSchema("Management");
         }
     }
 
-    public static class MAnagementDbContextExtensions 
+    public static class ManagementDbContextExtensions 
     {
-        public static void EnsureDbIsCreated(this IApplicationBuilder app)
-        { 
+        public static void ApplyMigrations(this IApplicationBuilder app)
+        {
             using var scope = app.ApplicationServices.CreateScope();
-            var context = scope.ServiceProvider.GetService<ManagementDbContext>();
-            context.Database.EnsureCreated();
-            context.Database.CloseConnection();
+            var context = scope.ServiceProvider.GetRequiredService<ManagementDbContext>();
+            context.Database.Migrate();
         }
     }
 }

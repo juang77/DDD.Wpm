@@ -5,16 +5,36 @@ namespace Wpm.Management.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ManagementController : ControllerBase
+public class ManagementController(ILogger<ManagementController> logger, ManagementApplicationService applicationService) : ControllerBase
 {
-    private readonly ILogger<ManagementController> _logger;
-
-    public ManagementController(ILogger<ManagementController> logger)
+    [HttpPost]
+    public async Task<ActionResult> Post(CreatePetCommand command)
     {
-        _logger = logger;
+        try
+        {
+            await applicationService.Handle(command);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message);
+            return BadRequest();
+        }
+        
     }
 
-    [HttpPost]
-    public async Task<ActionResult>Post(CreatePetCommand command)
-    
+    [HttpPut]
+    public async Task<ActionResult> PutWeight(SetWeightCommand command)
+    {
+        try
+        {
+            await applicationService.Handle(command);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message);
+            return BadRequest();
+        }
+    }
 }

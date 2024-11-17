@@ -1,4 +1,6 @@
-﻿namespace Wpm.Clinic.Domain.Interfaces
+﻿using Wpm.Clinic.Domain.Entities;
+
+namespace Wpm.Clinic.Domain.Interfaces
 {
     public interface IDrugService
     {

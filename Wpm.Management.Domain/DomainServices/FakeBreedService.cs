@@ -1,4 +1,5 @@
-﻿using Wpm.Management.Domain.Interfaces;
+﻿using Wpm.Management.Domain.Entities;
+using Wpm.Management.Domain.Interfaces;
 using Wpm.Management.Domain.ValueObjects;
 
 namespace Wpm.Management.Domain.DomainServices
@@ -8,7 +9,7 @@ namespace Wpm.Management.Domain.DomainServices
         public readonly List<Breed> breeds =
             [
                 new Breed (Guid.NewGuid(), "ShitZu", new WeightRange(6.5m, 9.5m), new WeightRange(5.5m, 7.5m)),
-                new Breed (Guid.NewGuid(), "German Shepard", new WeightRange(5.5m, 9.5m), new WeightRange(27.5m, 45.5m))
+                new Breed (Guid.NewGuid(), "German Shepard", new WeightRange(25.5m, 40.5m), new WeightRange(27.5m, 45.5m))
             ];
 
         public Breed? GetBreed(Guid id)
